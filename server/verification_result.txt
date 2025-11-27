@@ -1,0 +1,7 @@
+MongoDB Connected
+User found in database:
+ID: 6927f1e15eaa141b3f703550
+Name: Database Test User
+Email: dbtest@example.com
+Is Admin: false
+Created At: Thu Nov 27 2025 12:08:25 GMT+0530 (India Standard Time)
