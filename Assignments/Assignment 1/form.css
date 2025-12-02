@@ -1,0 +1,76 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef2f3;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.login-page {
+  background: linear-gradient
+   (90deg, #3a3dbe 0%, #00d4ff 100%);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(1, 17, 51, 0.12);
+  width: 250px;
+}
+h1 {
+    text-align: center;
+    color: #4861ff;
+    margin-bottom: 28px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label {
+    color: #05438a;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #476976;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+input:focus {
+    border-color: #005bbb;
+}
+
+button{
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background .2s, color .2s,box-shadow .2s;
+}
+#submit-btn {
+  background: #1230c2;
+  color: #fff;
+  margin-bottom: 0px;
+}
+
+#submit-btn:hover {
+  background: #005bbb;
+}
+
+#cancel-btn {
+  background: #fff;
+  color: #1230c2;
+  border: 1px solid #c1d7e0;
+  margin-top: 4px;
+}
+
+#cancel-btn:hover {
+  background: #f0f0f0;
+  color: #005bbb;
+}
