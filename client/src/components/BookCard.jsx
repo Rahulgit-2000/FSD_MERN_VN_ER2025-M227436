@@ -19,7 +19,7 @@ const BookCard = ({ book }) => {
         addToCart({
             product: book._id,
             name: book.title,
-            image: book.image,
+            image: book.image || book.itemImage,
             price: book.price,
             countInStock: book.countInStock,
             qty: 1
@@ -29,9 +29,27 @@ const BookCard = ({ book }) => {
 
     return (
         <div className="card book-card">
-            <Link to={`/book/${book._id}`}>
-                <img src={book.image} alt={book.title} className="book-image" />
-            </Link>
+            <div style={{ position: 'relative' }}>
+                <Link to={`/book/${book._id}`}>
+                    <img src={book.image || book.itemImage} alt={book.title} className="book-image" />
+                </Link>
+                {book.isPopular && (
+                    <span style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        backgroundColor: '#ff4081',
+                        color: 'white',
+                        padding: '0.25rem 0.5rem',
+                        borderRadius: '4px',
+                        fontSize: '0.75rem',
+                        fontWeight: 'bold',
+                        zIndex: 1
+                    }}>
+                        Popular
+                    </span>
+                )}
+            </div>
             <div className="book-info">
                 <Link to={`/book/${book._id}`}>
                     <h3 className="book-title">{book.title}</h3>

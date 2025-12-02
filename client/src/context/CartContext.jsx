@@ -12,10 +12,22 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const { data } = await axios.get('/api/users/cart', {
+                const { data } = await axios.get('/api/user/cart', {
                     headers: { Authorization: `Bearer ${user.token}` },
                 });
-                setCartItems(data);
+
+                // Transform backend data (nested) to frontend structure (flat)
+                const transformedCart = data
+                    .filter(item => item.product) // Filter out null products (deleted books)
+                    .map(item => ({
+                        product: item.product._id,
+                        name: item.product.title,
+                        image: item.product.itemImage || item.product.image,
+                        price: item.product.price,
+                        qty: item.qty
+                    }));
+
+                setCartItems(transformedCart);
             } catch (error) {
                 console.error('Failed to fetch cart', error);
             }
@@ -36,7 +48,7 @@ export const CartProvider = ({ children }) => {
                     product: item.product,
                     qty: item.qty
                 }));
-                await axios.put('/api/users/cart', cartData, {
+                await axios.put('/api/user/cart', cartData, {
                     headers: { Authorization: `Bearer ${user.token}` },
                 });
             } catch (error) {

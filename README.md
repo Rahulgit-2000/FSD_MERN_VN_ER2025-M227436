@@ -34,6 +34,14 @@ A full-stack online bookstore application built with the MERN stack (MongoDB, Ex
     cd BookStore
     ```
 
+    **Option B: Manual Upload (Drag & Drop)**
+    If you prefer not to use the command line:
+    1.  Create a new repository on GitHub.
+    2.  Open the repository page and click "Upload files".
+    3.  Drag and drop your project files into the browser window.
+    4.  **IMPORTANT**: Do NOT upload the `node_modules` folders (in both `client` and `server` directories). These are huge and will be re-installed automatically by the deployment platform.
+    5.  Commit the changes.
+
 2.  **Install Dependencies**
 
     *Server:*
@@ -84,3 +92,8 @@ A full-stack online bookstore application built with the MERN stack (MongoDB, Ex
 
 - **Admin Login**: `admin@example.com` / `123456`
 - **User Login**: `john@example.com` / `123456`
+
+## Deployment
+
+For detailed instructions on how to deploy this application, please refer to the [Deployment Guide](DEPLOYMENT.md).
+

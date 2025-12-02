@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const users = require('./data/users'); // We'll create this next or mock it
 const books = require('./data/books');
-const User = require('./models/User');
-const Book = require('./models/Book');
+const User = require('./models/Users/UserSchema'); // Fixed path
+const Book = require('./models/Seller/BookSchema'); // Fixed path
 const Order = require('./models/Order');
+const bcrypt = require('bcryptjs');
 // const connectDB = require('./config/db');
 
 dotenv.config();
@@ -22,7 +23,14 @@ const importData = async () => {
         await Book.deleteMany();
         await User.deleteMany();
 
-        const createdUsers = await User.insertMany(users);
+        const salt = await bcrypt.genSalt(10);
+
+        const usersWithHashedPasswords = await Promise.all(users.map(async (user) => {
+            const hashedPassword = await bcrypt.hash(user.password, salt);
+            return { ...user, password: hashedPassword };
+        }));
+
+        const createdUsers = await User.insertMany(usersWithHashedPasswords);
         const adminUser = createdUsers[0]._id;
 
         const sampleBooks = books.map((book) => {
