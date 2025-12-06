@@ -181,46 +181,6 @@ After running the seed script, you can use these credentials:
 - `DELETE /api/bookings/:id` - Cancel booking (Protected)
 - `GET /api/bookings` - Get all bookings (Admin only)
 
-## 📁 Project Structure
-
-\`\`\`
-Project 2/
-├── server/
-│   ├── config/
-│   │   └── db.js                 # Database configuration
-│   ├── controllers/
-│   │   ├── authController.js     # Authentication logic
-│   │   ├── flightController.js   # Flight operations
-│   │   └── bookingController.js  # Booking operations
-│   ├── middleware/
-│   │   └── auth.js               # JWT authentication middleware
-│   ├── models/
-│   │   ├── User.js               # User schema
-│   │   ├── Flight.js             # Flight schema
-│   │   └── Booking.js            # Booking schema
-│   ├── routes/
-│   │   ├── authRoutes.js         # Auth endpoints
-│   │   ├── flightRoutes.js       # Flight endpoints
-│   │   └── bookingRoutes.js      # Booking endpoints
-│   ├── seed.js                   # Database seeding script
-│   └── server.js                 # Express server setup
-├── public/
-│   ├── css/
-│   │   └── style.css             # Application styles
-│   ├── js/
-│   │   ├── config.js             # API configuration
-│   │   ├── api.js                # API helper functions
-│   │   ├── auth.js               # Authentication module
-│   │   ├── flights.js            # Flights module
-│   │   ├── bookings.js           # Bookings module
-│   │   ├── admin.js              # Admin module
-│   │   └── app.js                # Main app initialization
-│   └── index.html                # Main HTML file
-├── .env.example                  # Environment variables template
-├── .gitignore                    # Git ignore rules
-├── package.json                  # Project dependencies
-└── README.md                     # Project documentation
-\`\`\`
 
 ## 👥 User Roles
 
